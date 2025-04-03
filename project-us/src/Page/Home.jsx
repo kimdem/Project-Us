@@ -11,6 +11,7 @@ const Home = () => {
       </header>
       <main className="home-main"><br></br><br></br>
         <Link to="/login" className="home-button">로그인</Link>
+        <Link to="/Welcome" className="home-button">test</Link>
       </main>
     </div>
   );

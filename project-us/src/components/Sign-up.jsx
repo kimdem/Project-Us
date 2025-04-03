@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../css/Signup.css";
 import { validateName, validateID, validatePassword, validateEmail } from "../js/signup_valid";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ const Signup = () => {
   const [errors, setErrors] = useState({});
   const [isNickAvailable, setIsNickAvailable] = useState(null);
   const [isIDAvailable, setIsIDAvailable] = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
@@ -68,7 +70,7 @@ const Signup = () => {
         });
   
         if (response.data.success) {
-          alert("회원가입 성공!");
+         navigate("/Welcome");
         } else {
           alert("회원가입 실패: " + response.data.error);
         }
