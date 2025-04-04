@@ -10,9 +10,7 @@ const AuthPage = () => {
       {isLogin ? <Login /> : <Signup />}
       <p style={{textAlign: "center"}}>
         {isLogin ? "계정이 없으신가요?    " : "이미 계정이 있으신가요?    "}
-        <a
-          href="#"
-          onClick={(e) => {
+        <a href="#" onClick={(e) => {
             e.preventDefault(); // 기본 동작 방지
             setIsLogin(!isLogin);
           }}

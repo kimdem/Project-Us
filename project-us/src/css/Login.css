@@ -87,3 +87,19 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.backbtn {
+  background-color: #ff4c60;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.backbtn:hover {
+  background-color: #e04354;
+  text-decoration: none;
+}
