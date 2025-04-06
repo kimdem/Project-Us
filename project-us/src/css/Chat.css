@@ -1,11 +1,18 @@
 .chat-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-btn-header {
+  display: flex;
+  justify-content: right;
   align-items: center;
 }
 
 .create-btn {
   padding: 8px 16px;
+  margin-left: 1%;
   background-color: #007bff;
   color: white;
   text-decoration: none;
@@ -31,6 +38,13 @@
   border-radius: 8px;
   font-size: 1.1em;
   transition: background-color 0.2s ease;
+}
+
+.room-link {
+  color: white;
+}
+.room-link:hover {
+  text-decoration: none;
 }
 
 .room-item:hover {

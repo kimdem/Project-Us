@@ -11,7 +11,7 @@ const AuthPage = () => {
       <p style={{textAlign: "center"}}>
         {isLogin ? "계정이 없으신가요?    " : "이미 계정이 있으신가요?    "}
         <a href="#" onClick={(e) => {
-            e.preventDefault(); // 기본 동작 방지
+            e.preventDefault();
             setIsLogin(!isLogin);
           }}
           className="toggle-link"

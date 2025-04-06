@@ -3,9 +3,8 @@
     padding: 0;
 }
 
-/* body와 html을 화면 크기에 맞춤 */
 html, body {
-    overflow: hidden; /* 스크롤 제거 */
+    overflow: hidden;
 }
 .home-container {
     display: flex;

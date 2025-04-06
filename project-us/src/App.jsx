@@ -5,6 +5,9 @@ import LoginOrRegister from './Page/LoginOrRegister';
 import Welcome from './Page/Welcome';
 import Lobby from './Page/Lobby';
 import CreateChat from './Page/CreateChat';
+import Chatroom from './Page/Chatroom';
+import EnterChat from './Page/EnterChat';
+import Room_info from './Page/Room_info';
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
         <Route path="/Welcome" element={<Welcome />} />
         <Route path="/Lobby" element={<Lobby />} />
         <Route path="/CreateChat" element={<CreateChat />} />
+        <Route path="/chatroom/:room_id" element={<Chatroom />} />
+        <Route path="/EnterChat" element={<EnterChat />} />
+        <Route path="/Room_info/:room_id" element={<Room_info />} />
       </Routes>
     </Router>
   );

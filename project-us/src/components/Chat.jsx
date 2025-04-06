@@ -7,7 +7,6 @@ const Chat = () => {
   useEffect(() => {
     const localData = localStorage.getItem("user");
     const user = localData ? JSON.parse(localData) : null;
-   
 
     if(user) {
       fetch(`http://localhost:5000/api/chat/get-room/${user.Usernum}`)
@@ -24,13 +23,20 @@ const Chat = () => {
     <div className="content-box">
       <div className="chat-header">
         <h1>채팅방</h1>
-        <Link to="/CreateChat" className="create-btn">+ 채팅방 생성</Link>
-      </div><hr /><br />
+      </div>
+      <div className="chat-btn-header">
+        <Link to="/CreateChat" className="create-btn">채팅방 생성</Link>
+        <Link to="/EnterChat" className="create-btn">채팅방 입장</Link>
+      </div><br></br>
+      <hr/><br/>
       <ul className="room-list">
         {roomList.length > 0 ? (
           roomList.map((room) => (
             <li key={room.room_id} className="room-item">
-              <strong>{room.room_name}</strong>
+              <Link to={`/chatroom/${room.room_id}`} className="room-link">
+                <strong>{room.room_name}</strong>
+              </Link>
+              
             </li>
           ))
         ) : (

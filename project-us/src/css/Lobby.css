@@ -38,12 +38,11 @@
     font-size: 1.5rem;
   }
   .logo img {
-    width: 4%; /* 로고 이미지 크기 조정 */
-    height: auto; /* 비율 유지 */
+    width: 4%; 
+    height: auto; 
     object-fit: contain;
   }
   
-  /* 네비게이션 링크 스타일 */
   .menu-bar .nav-items {
     display: flex;
     gap: 1rem;
@@ -61,7 +60,6 @@
     background-color: #ff4c60;
   }
   
-  /* 컨텐츠 박스 스타일링 - 화면 정중앙에 위치 */
   .content-box {
     position: absolute;
     top: 50%;
@@ -81,4 +79,28 @@
     font-size: 1.1rem;
 }
 
-  
+.dangerbtn {
+    background-color: #ff4c60;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+.dangerbtn:hover {
+    background-color: #ff1a2b;
+    text-decoration: none;
+}
+
+.backlobbybtn {
+  position: fixed;
+  top: 2.5%;
+  left: 5%;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1000;
+}
