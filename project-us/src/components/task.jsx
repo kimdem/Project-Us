@@ -1,21 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../css/task.css";
 
 const task = () => {
 
-  const createDOC = () => {
-    
-  }
-
-  const enterDOC = () => {
-
-  }
   return (
     <div className="content-box">
-      <div>
+      <div className="task-header">
         <h1>문서 리스트</h1>
-        <Link to="/CreateDoc" className="btn btn-primary">문서 생성</Link>
-        <button className="create-btn" onClick={enterDOC}>문서 입장</button>
+      </div>
+      <div className="task-btn-header">
+        <Link to="/CreateDoc" className="task-btn">문서 생성</Link>
+        <Link to="/EnterDoc" className="task-btn">문서 참가</Link>
       </div><br></br><hr></hr><br></br>
         
         <li>문서1</li>

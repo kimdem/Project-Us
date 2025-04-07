@@ -35,10 +35,10 @@ const CreateDoc = () => {
             alert(data.message);
 
             if (response.ok) {
-                navigate("/lobby");
+                navigate("/Lobby");
             }
         } catch (error) {
-            console.error("문서서 생성 오류:", error);
+            console.error("문서 생성 오류:", error);
             alert("문서 생성 중 오류가 발생했습니다.");
         } finally {
             setNotwice(false);
@@ -46,20 +46,20 @@ const CreateDoc = () => {
     };
 
     return (
-         <div className="create-container">
+        <div className="create-container">
             <div className="create-box">
                 <h2>문서 생성</h2>
                 <hr/><br/>
                 <form onSubmit={create}>
                     <input type="text" name=" DOC_name" placeholder="문서 이름" value={docname} onChange={(e) => setdocname(e.target.value)} required/>
                     <input type="password" name="DOC_password" placeholder="문서 비밀번호" value={docpassword} onChange={(e) => setdocpassword(e.target.value)} required/>
-                    <input type="text" name="des" placeholder="문서 설명(선택)" value={docdes} onChange={(e) => setdocdes(e.target.value)} required/><br/>
+                    <input type="text" name="des" placeholder="문서 설명(선택)" value={docdes} onChange={(e) => setdocdes(e.target.value)}/><br/>
                     <button type="submit" className="btn">생성하기</button>
                     <br></br>
                     <Link to="/lobby" className="backbtn">취소</Link>
                 </form>
             </div>
-         </div>
+        </div>
     );
 };
 export default CreateDoc;

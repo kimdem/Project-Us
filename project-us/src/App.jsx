@@ -9,6 +9,7 @@ import Chatroom from './Page/Chatroom';
 import EnterChat from './Page/EnterChat';
 import Room_info from './Page/Room_info';
 import CreateDoc from './Page/CreateDoc';
+import EnterDoc from './Page/EnterDoc';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/EnterChat" element={<EnterChat />} />
         <Route path="/Room_info/:room_id" element={<Room_info />} />
         <Route path="/CreateDoc" element={<CreateDoc/>} />
+        <Route path="/EnterDoc" element={<EnterDoc/>} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,27 @@
+.task-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-btn-header {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.task-btn {
+    padding: 8px 16px;
+    margin-left: 1%;
+    background-color: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.task-btn:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+}
