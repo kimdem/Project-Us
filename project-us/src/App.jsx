@@ -8,6 +8,7 @@ import CreateChat from './Page/CreateChat';
 import Chatroom from './Page/Chatroom';
 import EnterChat from './Page/EnterChat';
 import Room_info from './Page/Room_info';
+import CreateDoc from './Page/CreateDoc';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/chatroom/:room_id" element={<Chatroom />} />
         <Route path="/EnterChat" element={<EnterChat />} />
         <Route path="/Room_info/:room_id" element={<Room_info />} />
+        <Route path="/CreateDoc" element={<CreateDoc/>} />
       </Routes>
     </Router>
   );
