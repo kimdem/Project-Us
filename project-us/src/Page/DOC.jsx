@@ -1,11 +1,8 @@
 import React from "react";
 import DOC_edit from "../components/DOC_edit";
-import { useState } from "react";
 import "../css/DOC.css"
 
 const DOC = () => {
-    const [content, setContent] = useState("");
-
     return (
         <div className="doc-container">
             <header className="doc-header">
