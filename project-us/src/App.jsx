@@ -26,7 +26,7 @@ function App() {
         <Route path="/Room_info/:room_id" element={<Room_info />} />
         <Route path="/CreateDoc" element={<CreateDoc/>} />
         <Route path="/EnterDoc" element={<EnterDoc/>} />
-        <Route path="/DOC/:doc_id" element={<DOC/>} />
+        <Route path="/DOC/:DOC_id" element={<DOC/>} />
       </Routes>
     </Router>
   );

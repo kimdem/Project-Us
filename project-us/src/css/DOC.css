@@ -15,6 +15,11 @@
     align-items: center;
   }
   
+  .doc-header h2 {
+    font-size: 200%;
+    align-items: center;
+  }
+
   .doc-body {
     display: flex;
     flex: 1;
@@ -49,4 +54,40 @@
 
   .doc-editor .ProseMirror:focus {
     border: 1px solid #ff4c60;
+  }
+
+  .doc-sidebar {
+    width: 200px;
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 20px;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  .doc-sidebar h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #ff4c60;
+    text-align: center;
+  }
+  
+  .doc-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .doc-sidebar li {
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.2s ease;
+  }
+  
+  .doc-sidebar li:hover {
+    background-color: #3a3a3a;
+    cursor: default;
   }
