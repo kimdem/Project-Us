@@ -40,12 +40,11 @@ const Signup = () => {
     e.preventDefault();
     const newErrors = {};
 
-    // 유효성 검사
     if (!validateName(formData.Nick)) {
       newErrors.Nick = "닉네임은 2자 이상 10자 이하로 입력해주세요.";
     }
     if (!validateID(formData.ID)) {
-      newErrors.ID = "ID는 영문, 숫자 조합으로 4~16자로 입력해주세요.";
+      newErrors.ID = "ID는 영문 또는 숫자 조합으로 4~16자로 입력해주세요.";
     }
     if (!validatePassword(formData.password)) {
       newErrors.password = "비밀번호는 최소 8자, 숫자, 특수문자를 포함해야 합니다. 특수문자 (!@#$%*?&+)";
@@ -70,7 +69,7 @@ const Signup = () => {
         });
   
         if (response.data.success) {
-         navigate("/Welcome");
+          navigate("/Welcome");
         } else {
           alert("회원가입 실패: " + response.data.error);
         }
@@ -97,7 +96,7 @@ const Signup = () => {
           <div className="input-group">
             <label>ID</label>
             <input type="text" name="ID" placeholder="ID(필수)" value={formData.ID} onChange={handleChange}required />
-            {errors.id && <p className="error">{errors.id}</p>}
+            {errors.ID && <p className="error">{errors.ID}</p>}
             {isIDAvailable === false && <p className="error">이미 사용 중인 ID입니다.</p>}
           </div>
           <div className="input-group">

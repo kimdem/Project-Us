@@ -15,12 +15,8 @@ const Room_info = () => {
     const Leaveroom = async () => {
         const localData = JSON.parse(localStorage.getItem("user"));
         const user_id = localData?.Usernum;
-        const RUSURE = (roominfo.room_admin === user_id)
-        ? "현재 방장이십니다. 방장의 경우 탈퇴시 방이 삭제됩니다. 정말 나가시겠습니까?"
-        : "정말 방을 나가시겠습니까?";
 
-        if (!window.confirm(RUSURE)) return;
-
+        if (!window.confirm("정말 방을 나가시겠습니까?")) return;
         try {
             
 

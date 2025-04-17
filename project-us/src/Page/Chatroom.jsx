@@ -31,8 +31,15 @@ useEffect(() => {
     socket.on("receiveMessage", (msg) => {
       setMessages((prev) => [...prev, msg]);
     });
-
+    socket.on("userLeft", (message) => {
+      setMessages((prev) => [...prev, message]);
+    });
+    socket.on("userenter", (message) => {
+      setMessages((prev) => [...prev, message]);
+    });
     return () => {
+      socket.off("userLeft");
+      socket.off("userenter");
       socket.off("receiveMessage");
     };
   }, [room_id, user_id]);
