@@ -7,17 +7,29 @@ import Toolbar from "./Toolbar";
 import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
+import Highlight from '@tiptap/extension-highlight'
+import Blockquote from '@tiptap/extension-blockquote';
+import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
+import Link from '@tiptap/extension-link';
+import Table from '@tiptap/extension-table';
+import TableRow from '@tiptap/extension-table-row';
+import TableCell from '@tiptap/extension-table-cell';
+import TableHeader from '@tiptap/extension-table-header';
 import io from "socket.io-client";
 import ParagraphMeta from "../js/ParagraphMeta"
+import "../css/htmltag.css";
 
 const socket = io("http://localhost:5000");
 
 const DOC_edit = ({docId}) => {
   const editor = useEditor({
-    extensions: [StarterKit, Underline, Textsize, TextStyle, TextAlign.configure({
+    extensions: [StarterKit, Underline, Blockquote, Highlight, Link, Textsize, TextStyle, TextAlign.configure({
       types: ['heading', 'paragraph'],
     }),
-    ParagraphMeta,
+    ParagraphMeta, Table.configure({
+      resizable: true,
+    }),
+    TableRow, TableCell, TableHeader,
   ],
     content: "<p>문서를 시작하세요...</p>",
   });

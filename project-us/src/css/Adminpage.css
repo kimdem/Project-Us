@@ -1,0 +1,101 @@
+.admin-container {
+    width: 80vw;
+    min-height: 80vh;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    box-sizing: border-box;
+}
+
+.contents-box {
+    background: #29294b;
+    padding: 2rem;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    height: 80vh;
+    overflow: auto;
+}
+
+.menu-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background: #29294b;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    font-size: 1.2rem;
+}
+
+.menu-bar .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.logo img {
+    width: 4%; 
+    height: auto; 
+    object-fit: contain;
+}
+
+.menu-bar .nav-items {
+    display: flex;
+    gap: 1rem;
+}
+
+.menu-bar .nav-items a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.menu-bar .nav-items a:hover {
+    background-color: #ff4c60;
+}
+
+.user-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-item {
+    background-color: #4a4a7d;
+    margin-bottom: 10px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    transition: background-color 0.2s ease;
+}
+.user-link {
+    color: white;
+}
+.user-link:hover {
+    text-decoration: none;
+}
+
+.user-item:hover {
+    background-color: #5c5c92;
+    cursor: pointer;
+}
+
+.fix-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #29294b;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 40vw;
+    color: white;
+}
+

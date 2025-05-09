@@ -22,7 +22,11 @@ const Login = () => {
       if (response.data.success) {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("user", JSON.stringify(response.data.user));
-        navigate("/Lobby");
+        if(response.data.user.Usernum === 1) {
+          navigate("/Adminpage");
+        } else {
+          navigate("/Lobby");
+        }
       }
     } catch (error) {
       if(error.response) {

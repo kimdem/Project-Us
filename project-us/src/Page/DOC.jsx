@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import DOC_edit from "../components/DOC_edit";
 import "../css/DOC.css"
 
+
 const DOC = () => {
     const {DOC_id} = useParams();
     const [docname, setdocname] = useState("문서이름");
@@ -26,7 +27,6 @@ const DOC = () => {
         <div className="doc-container">
             <header className="doc-header">
                 <h2><strong>{docname}</strong></h2>
-                <span className="doc-status">저장상태</span>
             </header>
             <div className="doc-body">
                 <aside className="doc-sidebar">

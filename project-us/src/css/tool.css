@@ -1,0 +1,64 @@
+.toolbar {
+    background-color: #2d2d2d;
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    width: 80%;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.toolbar-menu {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.toolbar-menu button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.toolbar-menu button:hover {
+    background-color: #666;
+}
+
+.toolbar-menu button.active {
+    background-color: #ff4c60;
+    font-weight: bold;
+}
+
+.toolbar-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.toolbar-buttons button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.toolbar-buttons button:hover {
+    background-color: #777;
+}
+
+.toolbar-buttons .danger {
+    background-color: #a00;
+}
+
+.toolbar-buttons .danger:hover {
+    background-color: #d00;
+}
