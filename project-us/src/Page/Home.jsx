@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <header className="home-header">
-        <h1>작업를 한 곳에서!</h1>
+        <h1>작업을 한 곳에서!</h1>
         <p>Project - Us</p>
       </header>
       <main className="home-main"><br></br><br></br>

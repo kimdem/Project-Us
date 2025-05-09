@@ -12,6 +12,30 @@ const Toolbar = ({ editor }) => {
         }
     };
 
+    const editor_pdf = async (editor) => {
+        const html = editor.getHTML();
+        const response = await fetch('https://project-us-backend.onrender.com/api/DOC/editor_pdf', {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/html' },
+            body: html
+        });
+
+        if (!response.ok) {
+            alert('Failed to generate PDF');
+            return;
+        }
+
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'document.pdf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+    }; 
+
     if (!editor) return null;
     return (
         <div className="toolbar">
@@ -21,6 +45,7 @@ const Toolbar = ({ editor }) => {
                 <button className={tool === "title" ? "active" : ""} onClick={() => nowtool("title")}>제목</button>
                 <button className={tool === "insert" ? "active" : ""} onClick={() => nowtool("insert")}>표</button>
                 <button className={tool === "special" ? "active" : ""} onClick={() => nowtool("special")}>특수기능</button>
+                <button className={tool === "print" ? "active" : ""} onClick={() => nowtool("print")}>내보내기</button>
                 <button onClick={() => editor.chain().focus().clearNodes().run()}>문단 초기화</button>
             </div><hr></hr><br></br>
             <div className="toolbar-buttons">
@@ -71,6 +96,11 @@ const Toolbar = ({ editor }) => {
                     <>
                         <button onClick={() => editor.chain().focus().toggleBlockquote().run()}>인용</button>
                         <button onClick={setLink}>하이퍼링크</button>
+                    </>
+                )}
+                {tool === "print" && (
+                    <>
+                        <button onClick={() => editor_pdf(editor)}>PDF로 내보내기</button>
                     </>
                 )}
             </div>

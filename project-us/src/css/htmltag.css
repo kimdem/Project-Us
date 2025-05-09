@@ -11,10 +11,15 @@
     table-layout: fixed;
     width: 100%;
     margin: 1em 0;
+    margin: 0;
+    padding: 4px;
+    line-height: 1.4;
 }
 .tiptap th, .tiptap td {
     border: 1px solid #888;
-    padding: 8px;
+    margin: 0;
+    padding: 4px;
+    line-height: 1.4;
     min-width: 40px;
     text-align: left;
 }
