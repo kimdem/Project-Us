@@ -8,8 +8,6 @@ import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import Highlight from '@tiptap/extension-highlight'
-import Blockquote from '@tiptap/extension-blockquote';
-import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
 import Link from '@tiptap/extension-link';
 import Table from '@tiptap/extension-table';
 import TableRow from '@tiptap/extension-table-row';
@@ -23,7 +21,7 @@ const socket = io("https://project-us-backend.onrender.com");
 
 const DOC_edit = ({docId}) => {
   const editor = useEditor({
-    extensions: [StarterKit, Underline, Blockquote, Highlight, Link, Textsize, TextStyle, TextAlign.configure({
+    extensions: [StarterKit, Underline, Highlight, Link, Textsize, TextStyle, TextAlign.configure({
       types: ['heading', 'paragraph'],
     }),
     ParagraphMeta, Table.configure({
