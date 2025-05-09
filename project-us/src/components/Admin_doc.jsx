@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Admin_doc = () => {
     const [doc, setdoc] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/get-doc`)
+        fetch(`https://project-us-backend.onrender.com/api/admin/get-doc`)
         .then(res => res.json())
         .then(data => {
         setdoc(data);

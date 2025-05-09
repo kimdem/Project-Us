@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Admin_user = () => {
     const [user, setuser] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/get-user`)
+        fetch(`https://project-us-backend.onrender.com/api/admin/get-user`)
         .then(res => res.json())
         .then(data => {
         setuser(data);

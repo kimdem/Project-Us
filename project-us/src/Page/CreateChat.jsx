@@ -18,7 +18,7 @@ const CreateChat = () => {
         if(!userNum) {alert("로그인 필수"); return;}
         setNotwice(true);
         try {
-            const response = await fetch("http://localhost:5000/api/chat/create-room", {
+            const response = await fetch("https://project-us-backend.onrender.com/api/chat/create-room", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

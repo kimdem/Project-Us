@@ -12,7 +12,7 @@ const DOC = () => {
     useEffect(() => {
         const GetDOC = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/api/DOC/getDOCinfo/${DOC_id}`);
+                const res = await fetch(`https://project-us-backend.onrender.com/api/DOC/getDOCinfo/${DOC_id}`);
                 const data = await res.json();
                 setdocname(data.DOCNAME);
                 setmember(data.MEMBER);

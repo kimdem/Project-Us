@@ -4,7 +4,7 @@ import React from "react";
 const Admin_user = () => {
     const [chat, setchat] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/get-chat`)
+        fetch(`https://project-us-backend.onrender.com/api/admin/get-chat`)
         .then(res => res.json())
         .then(data => {
         setchat(data);

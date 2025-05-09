@@ -18,7 +18,7 @@ const CreateDoc = () => {
         if(!userNum) {alert("로그인 필수"); return;}
         setNotwice(true);
         try {
-            const response = await fetch("http://localhost:5000/api/DOC/create-doc", {
+            const response = await fetch("https://project-us-backend.onrender.com/api/DOC/create-doc", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

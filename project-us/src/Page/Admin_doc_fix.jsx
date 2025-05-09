@@ -14,7 +14,7 @@ const Admin_doc_fix = () => {
             DOC_password: "",
         });
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/get-docfix/${DOC_id}`)
+        fetch(`https://project-us-backend.onrender.com/api/admin/get-docfix/${DOC_id}`)
         .then(res => res.json()) 
         .then(data => {
             setFormData({
@@ -36,7 +36,7 @@ const Admin_doc_fix = () => {
     const submit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:5000/api/admin/doc-fix/${DOC_id}`, {
+            const response = await fetch(`https://project-us-backend.onrender.com/api/admin/doc-fix/${DOC_id}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -64,7 +64,7 @@ const Admin_doc_fix = () => {
             window.confirm("정말 삭제하시겠습니까? 삭제시 복구가 불가능합니다.");
             if(window.confirm) {
                 try {
-                    const response = await fetch(`http://localhost:5000/api/admin/doc-remove/${DOC_id}`, {
+                    const response = await fetch(`https://project-us-backend.onrender.com/api/admin/doc-remove/${DOC_id}`, {
                         method: "POST",
                     })
                     const data = await response.json();

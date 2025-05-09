@@ -15,7 +15,7 @@ const Admin_chat_fix = () => {
     });
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/get-chatfix/${room_id}`)
+        fetch(`https://project-us-backend.onrender.com/api/admin/get-chatfix/${room_id}`)
         .then(res => res.json())
         .then(data=> {
             setFormData({
@@ -35,7 +35,7 @@ const Admin_chat_fix = () => {
         window.confirm("정말로 삭제하시겠습니까? 복구는 불가능합니다.");
         if(window.confirm) {
             try {
-                const resp = await fetch(`http://localhost:5000/api/admin/chat-remove/${room_id}`, {
+                const resp = await fetch(`https://project-us-backend.onrender.com/api/admin/chat-remove/${room_id}`, {
                     method: "POST",
                 })
                 const data = await resp.json(); 
@@ -55,7 +55,7 @@ const Admin_chat_fix = () => {
         window.confirm("정말로 수정하시겠습니까?");
         if(window.confirm) {
             try {
-                const resp = await fetch(`http://localhost:5000/api/admin/chat-fix/${room_id}`, {
+                const resp = await fetch(`https://project-us-backend.onrender.com/api/admin/chat-fix/${room_id}`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

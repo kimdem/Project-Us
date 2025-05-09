@@ -9,7 +9,7 @@ const Chat = () => {
     const user = localData ? JSON.parse(localData) : null;
 
     if(user) {
-      fetch(`http://localhost:5000/api/chat/get-room/${user.Usernum}`)
+      fetch(`https://project-us-backend.onrender.com/api/chat/get-room/${user.Usernum}`)
         .then(res => res.json())
         .then(data => {
         setRoomList(data);

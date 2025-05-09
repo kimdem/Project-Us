@@ -24,7 +24,7 @@ const Signup = () => {
 
     if (name === "Nick" || name === "ID") {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/check-duplicate?field=${name}&value=${value}`);
+        const response = await axios.get(`https://project-us-backend.onrender.com/api/users/check-duplicate?field=${name}&value=${value}`);
         if (name === "Nick") {
           setIsNickAvailable(!response.data.exists);
         } else if (name === "ID") {
@@ -61,7 +61,7 @@ const Signup = () => {
     } else {
       setErrors({});
       try {
-        const response = await axios.post("http://localhost:5000/api/users/signup", {
+        const response = await axios.post("https://project-us-backend.onrender.com/api/users/signup", {
           Nick: formData.Nick, 
           ID: formData.ID,      
           email: formData.email,

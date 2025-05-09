@@ -21,7 +21,7 @@ const Admin_user_fix = () => {
         Email: "",
     });
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/get-userfix/${User_num}`)
+        fetch(`https://project-us-backend.onrender.com/api/admin/get-userfix/${User_num}`)
         .then(res => res.json())
         .then(data => {
             setFormData({
@@ -43,7 +43,7 @@ const Admin_user_fix = () => {
 
         if (name === "Nick" || name === "ID") {
             try {
-                const response = await axios.get(`http://localhost:5000/api/users/check-duplicate?field=${name}&value=${value}`);
+                const response = await axios.get(`https://project-us-backend.onrender.com/api/users/check-duplicate?field=${name}&value=${value}`);
                 if (name === "Nick") {
                     setIsNickAvailable(!response.data.exists);
                 } else if (name === "ID") {
@@ -76,7 +76,7 @@ const Admin_user_fix = () => {
         } else {
             setErrors({});
             try {
-                const response = await fetch(`http://localhost:5000/api/admin/user-fix/${User_num}`, {
+                const response = await fetch(`https://project-us-backend.onrender.com/api/admin/user-fix/${User_num}`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -106,7 +106,7 @@ const Admin_user_fix = () => {
         e.preventDefault();
         if(window.confirm("사용자 정보를 삭제합니다. 삭제시 복구가 불가능합니다.")) {
             try {
-                const response = await fetch(`http://localhost:5000/api/admin/user-remove/${User_num}`, {
+                const response = await fetch(`https://project-us-backend.onrender.com/api/admin/user-remove/${User_num}`, {
                     method: "POST"
                 });
                 const data = await response.json();

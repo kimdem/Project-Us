@@ -3,7 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 import "../css/Chatroom.css";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://project-us-backend.onrender.com");
 
 const ChatRoom = () => {
 const { room_id } = useParams();
@@ -20,7 +20,7 @@ const localData = JSON.parse(localStorage.getItem("user"));
 const user_id = localData?.Usernum;
 
 useEffect(() => {
-    fetch(`http://localhost:5000/api/chat/get-room-info/${room_id}`)
+    fetch(`https://project-us-backend.onrender.com/api/chat/get-room-info/${room_id}`)
     .then((res) => res.json())
     .then((data) => {
         setRoomInfo(data.roomInfo);

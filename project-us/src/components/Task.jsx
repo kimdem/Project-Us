@@ -11,7 +11,7 @@ useEffect(() => {
     const user = localData ? JSON.parse(localData) : null;
 
     if (user) {
-        fetch(`http://localhost:5000/api/DOC/get-doc/${user.Usernum}`)
+        fetch(`https://project-us-backend.onrender.com/api/DOC/get-doc/${user.Usernum}`)
         .then((res) => res.json())
         .then((data) => {
             setDOCList(data);

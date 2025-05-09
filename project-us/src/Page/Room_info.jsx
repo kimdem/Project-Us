@@ -20,7 +20,7 @@ const Room_info = () => {
         try {
             
 
-            const leave = await fetch(`http://localhost:5000/api/chat/Leaveroom`, {
+            const leave = await fetch(`https://project-us-backend.onrender.com/api/chat/Leaveroom`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const Room_info = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/chat/get-Whatmyroom/${room_id}`)
+        fetch(`https://project-us-backend.onrender.com/api/chat/get-Whatmyroom/${room_id}`)
             .then((res) => res.json())
             .then((data) => {
                 setroominfo(data.roominfo);

@@ -19,7 +19,7 @@ import io from "socket.io-client";
 import ParagraphMeta from "../js/ParagraphMeta"
 import "../css/htmltag.css";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://project-us-backend.onrender.com");
 
 const DOC_edit = ({docId}) => {
   const editor = useEditor({
@@ -60,7 +60,7 @@ const Autosave = async() => {
   });
   if (update) {
     const html = editor.getHTML();
-    const res = await fetch("http://localhost:5000/api/DOC/saveDOC", {
+    const res = await fetch("https://project-us-backend.onrender.com/api/DOC/saveDOC", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ DOC_id: docId, msg: html }),
@@ -95,7 +95,7 @@ useEffect(() => {
   if(!editor || !docId) {return;}
   const loadcontent = async() => {
     try {
-      const res = await fetch(`http://localhost:5000/api/DOC/loadDOC/${docId}`);
+      const res = await fetch(`https://project-us-backend.onrender.com/api/DOC/loadDOC/${docId}`);
       const data = await res.json();
       if(data.content) {
         editor.commands.setContent(data.content);

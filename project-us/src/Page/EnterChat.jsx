@@ -17,7 +17,7 @@ const EnterChat = () => {
       if (!user_id) return alert("로그인이 필요합니다.");
   
       try {
-        const res = await fetch("http://localhost:5000/api/chat/enter-room", {
+        const res = await fetch("https://project-us-backend.onrender.com/api/chat/enter-room", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ room_id: roomId, room_password: roomPassword, user_id }),

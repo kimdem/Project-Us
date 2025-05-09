@@ -18,7 +18,7 @@ const EnterDoc = () => {
         if (!user_id) return alert("로그인이 필요합니다.");
 
         try {
-            const res = await fetch("http://localhost:5000/api/DOC/enter-doc", {
+            const res = await fetch("https://project-us-backend.onrender.com/api/DOC/enter-doc", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ doc_id: docid, doc_password: docpassword, user_id }),
