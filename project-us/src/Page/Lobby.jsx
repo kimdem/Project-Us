@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../css/Lobby.css";
-import Task from "../components/Task";
 import Profile from "../components/Profile";
+import Task from "../components/Task";
 import Chat from "../components/Chat";
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +15,6 @@ const Lobby = () => {
       localStorage.removeItem("user");
       navigate("/login");
     } 
-    
 };
 
 
