@@ -13,27 +13,32 @@ const Toolbar = ({ editor }) => {
     };
 
     const editor_pdf = async (editor) => {
-        const html = editor.getHTML();
-        const response = await fetch('https://project-us-backend.onrender.com/api/DOC/editor_pdf', {
+        window.confirm("PDF로 내보냅니다. 시간이 다소 걸립니다.");
+        if(window.confirm) {
+            const html = editor.getHTML();
+            const response = await fetch('https://project-us-backend.onrender.com/api/DOC/editor_pdf', {
             method: 'POST',
             headers: { 'Content-Type': 'text/html' },
             body: html
         });
-
-        if (!response.ok) {
-            alert('Failed to generate PDF');
-            return;
-        }
-
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'document.pdf';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        window.URL.revokeObjectURL(url);
+            if (!response.ok) {
+                alert('PDF 변환 실패');
+                return;
+            }
+            const blob = await response.blob();
+            console.log("blob : " + blob);
+            console.log("blob size : " + blob.size);
+            console.log("blob type : " + blob.type);
+            const url = window.URL.createObjectURL(blob);
+            console.log("URL : " + url);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'document.pdf';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            window.URL.revokeObjectURL(url);
+            }
     }; 
 
     if (!editor) return null;
