@@ -15,7 +15,6 @@ const Admin_user_fix = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         Nick: "",
-        User_num: "",
         ID: "",
         Pwd: "",
         Email: "",
@@ -26,7 +25,6 @@ const Admin_user_fix = () => {
         .then(data => {
             setFormData({
                 Nick: data.Nick,
-                User_num: data.User_num,
                 ID: data.ID,
                 Pwd: "",
                 Email: data.Email,
@@ -55,18 +53,36 @@ const Admin_user_fix = () => {
             }
         };     
         
+    
+    const resetPWD = async (e) => {
+        e.preventDefault();
+        if (window.confirm("비밀번호를 초기화 하시겠습니까? 초기화 비밀번호는 0000입니다.")) {
+            try {
+                const response = await fetch(`https://project-us-backend.onrender.com/api/admin/user-resetPWD/${User_num}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ Pwd: "0000" })
+                });
+                const data = await response.json();
+                if (data.success === true) {
+                    alert("비밀번호가 초기화되었습니다.");
+                } else {
+                    alert("비밀번호 초기화 실패: " + data.error);
+                }
+            } catch (error) {
+                console.error("비밀번호 초기화 오류:", error);
+                alert("비밀번호 초기화 중 오류가 발생했습니다.");
+            }
+        }
+    }
 
     const submit = async (e) => {
         e.preventDefault();
         const newErrors = {};
         if (!validateName(formData.Nick)) {
             newErrors.Nick = "닉네임은 2자 이상 10자 이하로 입력해주세요.";
-        }
-        if (!validateID(formData.ID)) {
-            newErrors.ID = "ID는 영문 또는 숫자 조합으로 4~16자로 입력해주세요.";
-        }
-        if (formData.Pwd.trim() && !validatePassword(formData.Pwd)) {
-            newErrors.Pwd = "비밀번호는 최소 8자, 숫자, 특수문자를 포함해야 합니다. 특수문자 (!@#$%*?&+)";
         }
         if (!validateEmail(formData.Email)) {
             newErrors.Email = "유효한 이메일 주소를 입력해주세요.";
@@ -83,8 +99,6 @@ const Admin_user_fix = () => {
                     },
                     body: JSON.stringify ({
                         Nick: formData.Nick,
-                        ID: formData.ID,
-                        Pwd: formData.Pwd,
                         Email: formData.Email,
                     })
                 });
@@ -134,19 +148,12 @@ const Admin_user_fix = () => {
                         {isNickAvailable === false && <p className="error">이미 사용 중인 닉네임입니다.</p>}
                     </div>
                     <div className="fix-group">
-                        <b>식별번호 : </b>
-                        <input type="text" name="User_num" value={formData.User_num} readOnly></input>
-                    </div>
-                    <div className="fix-group">
                         <b>ID : </b>
-                        <input type="text" name="ID" value={formData.ID} onChange={formchange} required></input>
-                        {errors.ID && <p className="error">{errors.ID}</p>}
-                        {isIDAvailable === false && <p className="error">이미 사용 중인 ID입니다.</p>}
+                        <input type="text" name="ID" value={formData.ID} onChange={formchange} readOnly></input>
                     </div>
                     <div className="fix-group">
-                        <b>비밀번호 : </b>
-                        <input type="text" name="Pwd" placeholder="유출방지 || 공백시 비밀번호 유지" onChange={formchange}></input>
-                        {errors.Pwd && <p className="error">{errors.Pwd}</p>}
+                        <b>비밀번호 초기화</b><span>초기화 비밀번호 : 0000</span>
+                        <button type="button" onClick={resetPWD}>초기화</button>
                     </div>
                     <div className="fix-group">
                         <b>E-mail : </b>

@@ -26,11 +26,7 @@ const Toolbar = ({ editor }) => {
                 return;
             }
             const blob = await response.blob();
-            console.log("blob : " + blob);
-            console.log("blob size : " + blob.size);
-            console.log("blob type : " + blob.type);
             const url = window.URL.createObjectURL(blob);
-            console.log("URL : " + url);
             const a = document.createElement('a');
             a.href = url;
             a.download = 'document.pdf';
