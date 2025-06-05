@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { validateName, validateID, validatePassword, validateEmail } from "../js/signup_valid";
+import { validateName, validateEmail } from "../js/signup_valid";
 import { useNavigate } from "react-router-dom";
 import "../css/Lobby.css";
 import Admin_menubar from "../components/Admin_menubar";
