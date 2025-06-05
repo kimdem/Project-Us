@@ -93,13 +93,13 @@ const Toolbar = ({ editor }) => {
                                 editor.commands.insertTable({rows: 2, cols: 2, withHeaderRow: true});
                             }
                         }}>테이블 추가</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.addRowBefore())}>위쪽 행 추가</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.addRowAfter())}>아래쪽 행 추가</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.addColumnAfter())}>오른쪽 열 추가</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.addColumnBefore())}>왼쪽 열 추가</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.deleteRow())}>행 삭제</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.deleteColumn())}>열 삭제</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.deleteTable())}>테이블 삭제</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() =>editor.commands.addRowBefore()}>위쪽 행 추가</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.commands.addRowAfter()}>아래쪽 행 추가</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() =>editor.commands.addColumnAfter()}>오른쪽 열 추가</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() =>editor.commands.addColumnBefore()}>왼쪽 열 추가</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() =>editor.commands.deleteRow()}>행 삭제</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() =>editor.commands.deleteColumn()}>열 삭제</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() =>editor.commands.deleteTable()}>테이블 삭제</button>
                     </>
                 )}
                 {tool === "special" && (
