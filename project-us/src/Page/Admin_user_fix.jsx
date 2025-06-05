@@ -152,7 +152,7 @@ const Admin_user_fix = () => {
                         <input type="text" name="ID" value={formData.ID} onChange={formchange} readOnly></input>
                     </div>
                     <div className="fix-group">
-                        <b>비밀번호 초기화</b><span>초기화 비밀번호 : 0000</span>
+                        <b>비밀번호 초기화</b><p>초기화 비밀번호 : 0000</p><br></br>
                         <button type="button" onClick={resetPWD}>초기화</button>
                     </div>
                     <div className="fix-group">

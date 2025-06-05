@@ -9,8 +9,6 @@ const Admin_doc_fix = () => {
     const { DOC_id } = useParams();
     const [formData, setFormData] = useState({
             DOC_name: "",
-            DOC_admin: "",
-            DOC_id: "",
             DOC_password: "",
         });
     useEffect(() => {
@@ -19,8 +17,6 @@ const Admin_doc_fix = () => {
         .then(data => {
             setFormData({
                 DOC_name: data.DOC_name,
-                DOC_admin: data.DOC_admin,
-                DOC_id: data.DOC_id,
                 DOC_password: data.DOC_password,
             });
         })
@@ -43,7 +39,6 @@ const Admin_doc_fix = () => {
                 },
                 body: JSON.stringify({
                     DOC_name: formData.DOC_name,
-                    DOC_admin: formData.DOC_admin,
                     DOC_password: formData.DOC_password,
                 }) 
                 });
@@ -89,14 +84,6 @@ const Admin_doc_fix = () => {
                     <div className="fix-group">
                         <b>문서 이름 : </b>
                         <input type="text" name="DOC_name" value={formData.DOC_name} onChange={formchange} required/>
-                    </div>
-                    <div className="fix-group">
-                        <b>문서 방장 : </b>
-                        <input type="text" name="DOC_admin" value={formData.DOC_admin} readOnly/>
-                    </div>
-                    <div className="fix-group">
-                        <b>문서 번호 : </b>
-                        <input type="text" name="DOC_id" value={formData.DOC_id} readOnly/>
                     </div>
                     <div className="fix-group">
                         <b>문서 비밀번호</b>

@@ -9,8 +9,6 @@ const Admin_chat_fix = () => {
     const { room_id } = useParams();
     const [formData, setFormData] = useState({
         room_name: "",
-        room_admin: "",
-        room_id: "",
         room_password: "",
     });
     const navigate = useNavigate();
@@ -20,8 +18,6 @@ const Admin_chat_fix = () => {
         .then(data=> {
             setFormData({
                 room_name: data.room_name,
-                room_admin: data.room_admin,
-                room_id: data.room_id,
                 room_password: data.room_password,
             })
         })
@@ -88,14 +84,6 @@ const Admin_chat_fix = () => {
                     <div className="fix-group">
                         <b>채팅방 이름 : </b>
                         <input type="text" name="room_name" value={formData.room_name} onChange={formchange} required/>
-                    </div>
-                    <div className="fix-group">
-                        <b>식별번호 : </b>
-                        <input type="text" name="room_id" value={formData.room_id} onChange={formchange} readOnly/>
-                    </div>
-                    <div className="fix-group">
-                        <b>방장 : </b>
-                        <input type="text" name="room_admin" value={formData.room_admin}onChange={formchange} readOnly/>
                     </div>
                     <div className="fix-group">
                         <b>비밀번호 : </b>
