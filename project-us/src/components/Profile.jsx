@@ -11,7 +11,6 @@ const Profile = () => {
     });
     const [errors, setErrors] = useState({});
     const [isNickAvailable, setIsNickAvailable] = useState(null);
-    const [isIDAvailable, setIsIDAvailable] = useState(null);
     const [modal, setmodal] = useState(false);
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -32,15 +31,12 @@ const Profile = () => {
         const handleChange = async (e) => {
             const { name, value } = e.target;
             setFormData({ ...formData, [name]: value });
-            if (name === "Nick" || name === "ID") {
+            if (name === "Nick") {
                 try {
                     const response = await axios.get(`https://project-us-backend.onrender.com/api/users/check-duplicate?field=${name}&value=${value}`);
                     if (name === "Nick"){
                         setIsNickAvailable(!response.data.exists);
                     } 
-                    if (name === "ID") {
-                        setIsIDAvailable(!response.data.exists);
-                    }
                 } catch (error) {
                     console.error("중복 검사 오류:", error);
                 }
@@ -54,17 +50,11 @@ const Profile = () => {
             if (!validateName(formData.Nick)) {
                 newErrors.Nick = "닉네임은 2자 이상 10자 이하로 입력해주세요.";
             }
-            if (!validateID(formData.ID)) {
-                newErrors.ID = "ID는 영문 또는 숫자 조합으로 4~16자로 입력해주세요.";
-            }
             if (!validateEmail(formData.Email)) {
                 newErrors.email = "유효한 이메일 주소를 입력해주세요.";
             }
             if (isNickAvailable === false) {
                 newErrors.Nick = "이미 사용 중인 닉네임입니다.";
-            }
-            if (isIDAvailable === false) {
-                newErrors.ID = "이미 사용 중인 ID입니다.";
             }
             if (Object.keys(newErrors).length > 0) {
                 setErrors(newErrors);
@@ -144,9 +134,7 @@ const Profile = () => {
                                 {errors.Nick && <p className="error">{errors.Nick}</p>}
                                 {isNickAvailable === false && !errors.Nick && (<p className="error">이미 사용 중인 닉네임입니다.</p>)}
                                 <p>아이디</p>
-                                <input type="text" name="ID" value={formData.ID} onChange={handleChange} required></input><br></br>
-                                {errors.ID && <p className="error">{errors.ID}</p>}
-                                {isIDAvailable === false && !errors.ID && (<p className="error">이미 사용 중인 ID입니다.</p>)}
+                                <input type="text" name="ID" value={formData.ID} readOnly></input><br></br>
                                 <p>비밀번호</p>
                                 <button type="button" className="modal-btn" onClick={() => setmodal(true)}>변경하기</button>
                                 <p>이메일</p>

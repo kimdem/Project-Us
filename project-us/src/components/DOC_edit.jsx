@@ -116,7 +116,14 @@ useEffect(() => {
   
   const UpdateReceive = (text2) => {
     if(editor.getHTML() !== text2) {
-      editor.commands.setContent(text2);
+      const {from, to} = editor.state.selection;
+      editor.commands.setContent(text2, false);
+      try {
+        editor.commands.setTextSelection({from, to});
+        editor.commands.focus();
+      } catch (error) {
+        console.error("setTextSelection 오류:", error);
+      }
     }
   };
 
