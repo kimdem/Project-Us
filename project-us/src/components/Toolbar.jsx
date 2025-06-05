@@ -37,7 +37,7 @@ const Toolbar = ({ editor }) => {
             }
     }; 
 
-    const selectionleft = () => {
+    const selectionleft = (command) => {
         const { from, to } = editor.state.selection;
         command();
         setTimeout(() => {
