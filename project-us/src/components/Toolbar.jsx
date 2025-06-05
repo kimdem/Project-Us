@@ -37,6 +37,15 @@ const Toolbar = ({ editor }) => {
             }
     }; 
 
+    const selectionleft = () => {
+        const { from, to } = editor.state.selection;
+        command();
+        setTimeout(() => {
+            editor.commands.setTextSelection({ from, to });
+            editor.commands.focus();
+        }, 0);
+    };
+
     if (!editor) return null;
     return (
         <div className="toolbar">
@@ -52,29 +61,29 @@ const Toolbar = ({ editor }) => {
             <div className="toolbar-buttons">
                 {tool === "align" && (
                     <>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().setTextAlign("left").run()}>왼쪽__</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().setTextAlign("center").run()}>__가운데__</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().setTextAlign("right").run()}>오른쪽__</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().setTextAlign("left").run())}>왼쪽__</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().setTextAlign("center").run())}>__가운데__</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().setTextAlign("right").run())}>오른쪽__</button>
                     </>
                 )}
                 {tool === "style" && (
                     <>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().toggleBold().run()}><strong>강조</strong></button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().toggleItalic().run()}><i>기울이기</i></button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().toggleUnderline().run()}><u>밑줄</u></button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().toggleBulletList().run()}>리스트</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().toggleOrderedList().run()}>번호매기기</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().toggleStrike().run()}><strike>취소선</strike></button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().toggleHighlight().run()}>형광펜</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().unsetAllMarks().run()}>스타일 제거</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().toggleBold().run())}><strong>강조</strong></button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().toggleItalic().run())}><i>기울이기</i></button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().toggleUnderline().run())}><u>밑줄</u></button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().toggleBulletList().run())}>리스트</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().toggleOrderedList().run())}>번호매기기</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().toggleStrike().run())}><strike>취소선</strike></button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().toggleHighlight().run())}>형광펜</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().unsetAllMarks().run())}>스타일 제거</button>
                     </>
                 )}
                 {tool === "title" && (
                     <>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}>제목1</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}>제목2</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}>제목3</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().setHorizontalRule().run()}>구분선</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().toggleHeading({ level: 1 }).run())}>제목1</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().toggleHeading({ level: 2 }).run())}>제목2</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().toggleHeading({ level: 3 }).run())}>제목3</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().setHorizontalRule().run())}>구분선</button>
                     </>
                 )}
                 {tool === "insert" && (
@@ -84,18 +93,18 @@ const Toolbar = ({ editor }) => {
                                 editor.commands.insertTable({rows: 2, cols: 2, withHeaderRow: true});
                             }
                         }}>테이블 추가</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.commands.addRowAfter()}>위쪽 행 추가</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.commands.addRowBefore()}>아래쪽 행 추가</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.commands.addColumnAfter()}>오른쪽 열 추가</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.commands.addColumnBefore()}>왼쪽 열 추가</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.commands.deleteRow()}>행 삭제</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.commands.deleteColumn()}>열 삭제</button>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.commands.deleteTable()}>테이블 삭제</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.addRowBefore())}>위쪽 행 추가</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.addRowAfter())}>아래쪽 행 추가</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.addColumnAfter())}>오른쪽 열 추가</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.addColumnBefore())}>왼쪽 열 추가</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.deleteRow())}>행 삭제</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.deleteColumn())}>열 삭제</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.commands.deleteTable())}>테이블 삭제</button>
                     </>
                 )}
                 {tool === "special" && (
                     <>
-                        <button onMouseDown={e=>e.preventDefault()} onClick={() => editor.chain().focus().toggleBlockquote().run()}>인용</button>
+                        <button onMouseDown={e=>e.preventDefault()} onClick={() => selectionleft(()=>editor.chain().focus().toggleBlockquote().run())}>인용</button>
                         <button onMouseDown={e=>e.preventDefault()} onClick={setLink}>하이퍼링크</button>
                     </>
                 )}
